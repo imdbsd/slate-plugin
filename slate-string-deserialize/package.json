@@ -1,0 +1,23 @@
+{
+  "name": "slate-string-deserialize",
+  "version": "0.0.1",
+  "description": "deserialize string to slate value",
+  "main": "index.js",
+  "author": "imdbsd",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.19",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "slate": "^0.59.0",
+    "typescript": "^4.1.3"
+  }
+}
