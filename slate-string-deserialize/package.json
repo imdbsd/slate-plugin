@@ -1,0 +1,16 @@
+{
+  "name": "slate-string-deserialize",
+  "version": "0.0.1",
+  "description": "deserialize string to slate value",
+  "main": "index.js",
+  "author": "imdbsd",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "slate": "^0.59.0",
+    "typescript": "^4.1.3"
+  }
+}
