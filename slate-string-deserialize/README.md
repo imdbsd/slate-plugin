@@ -11,6 +11,6 @@ import deserialize from 'slate-string-deserialize'
 
 deserialize('hello world')
 /*
-[{type: 'paragraph', children: [{text: 'lorem ipsum dollor'}]}]
+[{type: 'paragraph', children: [{text: 'hello world'}]}]
 */
 ```
