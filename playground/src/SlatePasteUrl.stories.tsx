@@ -1,13 +1,19 @@
-import React from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
-import Editor, { Props } from "./SlatePasteUrl";
+import React from 'react'
+import {Story, Meta} from '@storybook/react/types-6-0'
+import Editor, {Props} from './SlatePasteUrl'
 
 export default {
   component: Editor,
-  title: "slate-paste-url-plugin",
-} as Meta;
+  title: 'slate-paste-url-plugin',
+} as Meta
 
-const Template: Story<Props> = (args) => <Editor {...args} />;
+const Template: Story<Props> = (args) => <Editor {...args} />
 
-export const Default = Template.bind({});
-// Default.args = {};
+export const Default = Template.bind({})
+Default.args = {
+  defaultType: 'link',
+  patterns: {
+    capture: '(https|http)://github.com',
+    type: 'github_link',
+  },
+}
