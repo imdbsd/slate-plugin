@@ -1,0 +1,22 @@
+{
+  "name": "slate-paste-url-plugin",
+  "version": "0.0.1",
+  "description": "Paste url and transforms into anchor element",
+  "main": "dist/index.js",
+  "repository": "https://github.com/imdbsd/slate-plugin",
+  "author": "imdbsd",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p .",
+    "prepublish": "rm -rf ./dist && yarn build",
+    "publish:major": "yarn publish --major --message Release",
+    "publish:patch": "yarn publish --patch --message 'Release patch'"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "slate": "^0.59.0",
+    "slate-react": "^0.59.0"
+  }
+}
