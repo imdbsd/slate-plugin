@@ -1,6 +1,6 @@
 {
   "name": "slate-string-deserialize",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "deserialize string to slate value",
   "main": "dist/index.js",
   "author": "imdbsd",
