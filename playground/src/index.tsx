@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <SlateStrinDeserialize />
+    <SlateStrinDeserialize value="hello world" />
   </React.StrictMode>,
   document.getElementById("root")
 );
