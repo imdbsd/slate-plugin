@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import SlateStrinDeserialize from "./Stories/SlateStringDeserialize";
+import SlateStrinDeserialize from "./SlateStringDeserialize";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
