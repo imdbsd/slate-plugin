@@ -1,4 +1,8 @@
 {
   "private": true,
-  "workspaces": ["slate-string-deserialize"]
+  "workspaces": [
+    "slate-string-deserialize",
+    "slate-paste-url-plugin",
+    "playground"
+  ]
 }
