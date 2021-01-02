@@ -1,7 +1,4 @@
-import {Editor} from 'slate'
+export const MENTION_LEAF = 'mention-leaf'
 
-const withMention = (editor: Editor) => {
-  return editor
-}
-
-export default withMention
+export {default as withMention} from './withMention'
+export {default as decorate} from './decorate'
