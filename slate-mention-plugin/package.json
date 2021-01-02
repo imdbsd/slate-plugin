@@ -1,0 +1,20 @@
+{
+  "name": "slate-mention-plugin",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "author": "imdbsd",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p .",
+    "prepublish": "rm -rf ./dist && yarn build",
+    "publish:major": "yarn publish --major --message Release",
+    "publish:patch": "yarn publish --patch --message 'Release patch'"
+  },
+  "dependencies": {
+    "slate": "^0.59.0",
+    "slate-react": "^0.59.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
+}
