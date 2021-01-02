@@ -5,16 +5,17 @@
   "author": "imdbsd",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p .",
+    "build": "rm -rf ./dist && tsc -p .",
     "prepublish": "rm -rf ./dist && yarn build",
     "publish:major": "yarn publish --major --message Release",
     "publish:patch": "yarn publish --patch --message 'Release patch'"
   },
-  "dependencies": {
-    "slate": "^0.59.0",
-    "slate-react": "^0.59.0"
-  },
   "devDependencies": {
     "typescript": "^4.1.3"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "slate": "^0.59.0",
+    "slate-react": "^0.59.0"
   }
 }
