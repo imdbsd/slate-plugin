@@ -3,7 +3,17 @@ import {createEditor, Node} from 'slate'
 import {Slate, Editable, withReact, DefaultLeaf} from 'slate-react'
 import {decorate, renderLeafFN} from 'slate-mention-plugin'
 
-// const user =
+const users = ['Mallory', 'Amanda', 'Adele', 'Moira', 'Cassie']
+const fetchSuggestion = async (mention: string) => {
+  return users
+    .filter((user) => user.toLowerCase().indexOf(mention) !== -1)
+    .map((user) => ({
+      label: user,
+      value: {
+        user,
+      },
+    }))
+}
 
 const Editor: FC<any> = () => {
   const editor = useMemo(() => withReact(createEditor()), [])
@@ -27,18 +37,11 @@ const Editor: FC<any> = () => {
       <Editable
         renderLeaf={(props) => {
           const mentionLeaf = renderLeafFN({
-            fetchMention: (mention: string) => {
-              console.log({mention})
-              return Promise.resolve([])
-            },
+            fetchSuggestion,
           })(props)
           return mentionLeaf || <DefaultLeaf {...props} />
         }}
-        decorate={(entry) => {
-          const range = decorate(editor)(entry)
-          console.log({range})
-          return range
-        }}
+        decorate={decorate(editor)}
       />
     </Slate>
   )
