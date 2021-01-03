@@ -5,7 +5,7 @@
   "author": "imdbsd",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./dist && tsc -p . && cp ./src/styles.css ./dist/styles.css",
+    "build": "rm -rf ./dist && tsc -p . && cp ./src/MentionModal/styles.css ./dist/MentionModal/styles.css",
     "prepublish": "rm -rf ./dist && yarn build",
     "publish:major": "yarn publish --major --message Release",
     "publish:patch": "yarn publish --patch --message 'Release patch'"
