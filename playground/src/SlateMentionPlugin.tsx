@@ -1,7 +1,9 @@
 import {useState, useMemo, FC} from 'react'
 import {createEditor, Node} from 'slate'
 import {Slate, Editable, withReact, DefaultLeaf} from 'slate-react'
-import {decorate, RenderLeaf} from 'slate-mention-plugin'
+import {decorate, renderLeafFN} from 'slate-mention-plugin'
+
+// const user =
 
 const Editor: FC<any> = () => {
   const editor = useMemo(() => withReact(createEditor()), [])
@@ -24,7 +26,13 @@ const Editor: FC<any> = () => {
     >
       <Editable
         renderLeaf={(props) => {
-          return <RenderLeaf {...props} /> || <DefaultLeaf {...props} />
+          const mentionLeaf = renderLeafFN({
+            fetchMention: (mention: string) => {
+              console.log({mention})
+              return Promise.resolve([])
+            },
+          })(props)
+          return mentionLeaf || <DefaultLeaf {...props} />
         }}
         decorate={(entry) => {
           const range = decorate(editor)(entry)

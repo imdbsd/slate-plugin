@@ -1,0 +1,9 @@
+.mention-modal {
+  min-width: 100px;
+  position: absolute;
+  left: 0;
+  border: 1px solid #cfcfcf;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
