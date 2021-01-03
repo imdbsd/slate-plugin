@@ -1,12 +1,13 @@
 import * as React from 'react'
-import {Suggestion, FetchFN} from './Modal'
+import {FetchFN} from './Modal'
+import {SuggestionType} from './Suggestion'
 
 const useFetchSuggestions = (
   fetchSuggestion: FetchFN,
   mentionAt: string
-): [loading: boolean, suggestions: Suggestion[]] => {
+): [loading: boolean, suggestions: SuggestionType[]] => {
   const [loading, setLoading] = React.useState<boolean>(false)
-  const [suggestions, setSuggestions] = React.useState<Suggestion[]>([])
+  const [suggestions, setSuggestions] = React.useState<SuggestionType[]>([])
   const fetchTimeout = React.useRef<NodeJS.Timeout | undefined>()
 
   const handleFetchSuggestions = React.useCallback(() => {

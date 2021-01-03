@@ -8,6 +8,13 @@
   padding: 10px;
   display: flex;
   justify-content: center;
+  margin-top: 5px;
+  flex-direction: column;
+}
+
+.mention-modal__not-found {
+  color: gray;
+  font-family: inherit;
 }
 
 .mention-modal__loader {
@@ -20,6 +27,35 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mention-modal__suggestion {
+  color: black;
+  font-family: inherit;  
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 10px;
+}
+
+.mention-modal__suggestion:first-child {  
+  margin-top: -10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.mention-modal__suggestion:last-child {  
+  margin-bottom: -10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.mention-modal__suggestion:hover {  
+  background-color: #f3f3f3;
+  cursor: pointer;
 }

@@ -18,7 +18,7 @@ const decorate = (editor: ReactEditor | Editor) => (entry: NodeEntry) => {
     {
       anchor: {
         ...editor.selection.anchor,
-        offset: editor.selection.anchor.offset - (mentionTo.length + 1),
+        offset: editor.selection.anchor.offset - mentionTo.length,
       },
       focus: editor.selection.focus,
       type: MENTION_LEAF,

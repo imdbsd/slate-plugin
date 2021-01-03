@@ -1,21 +1,16 @@
 import * as React from 'react'
 import useFetchSuggestions from './useFetchSuggestions'
 import Loader from './Loader'
+import Suggestion, {SuggestionType} from './Suggestion'
 import './styles.css'
 
-export type Suggestion = {
-  label: string
-  value: any
-}
-
-export type FetchFN = (mentionAt: string) => Promise<Suggestion[]>
+export type FetchFN = (mentionAt: string) => Promise<SuggestionType[]>
 
 export type Props = {
   fetchSuggestion: FetchFN
 }
 
 const Modal: React.FC<Props & {mentionAt: string}> = (props) => {
-  console.log({props})
   const [loading, suggestions] = useFetchSuggestions(
     props.fetchSuggestion,
     props.mentionAt
@@ -26,9 +21,18 @@ const Modal: React.FC<Props & {mentionAt: string}> = (props) => {
       return <Loader />
     }
     if (!loading && suggestions.length === 0) {
-      return 'not found.'
+      return <span className="mention-modal__not-found">not found...</span>
     }
-    return 'render here'
+    return (
+      <React.Fragment>
+        {suggestions.map((suggestion) => (
+          <Suggestion
+            key={`suggestion-for-${suggestion.label}`}
+            {...suggestion}
+          />
+        ))}
+      </React.Fragment>
+    )
   }, [suggestions, loading])
 
   return (
