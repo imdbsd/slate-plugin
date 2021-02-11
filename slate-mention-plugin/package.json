@@ -1,0 +1,21 @@
+{
+  "name": "slate-mention-plugin",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "author": "imdbsd",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf ./dist && tsc -p . && cp ./src/MentionModal/styles.css ./dist/MentionModal/styles.css",
+    "prepublish": "rm -rf ./dist && yarn build",
+    "publish:major": "yarn publish --major --message Release",
+    "publish:patch": "yarn publish --patch --message 'Release patch'"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "slate": "^0.59.0",
+    "slate-react": "^0.59.0"
+  }
+}
