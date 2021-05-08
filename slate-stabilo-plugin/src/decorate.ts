@@ -15,18 +15,15 @@ const decorate = (options: Options) => ([node, path]: NodeEntry): Range[] => {
     if (!Array.isArray(options.highlight)) {
       return getRangeFromWordOptions(text, options.highlight, path)
     }
-    const ranges = options.highlight.reduce<Range[]>((range, highlight) => {
+    return options.highlight.reduce<Range[]>((range, highlight) => {
       if (typeof highlight === 'string') {
-        const hRange = getRangeFromString(text, highlight, path)
-        return [...range, ...hRange]
+        return [...range, ...getRangeFromString(text, highlight, path)]
       }
       if (typeof highlight === 'object') {
-        const hRange = getRangeFromString(text, highlight.word, path)
-        return [...range, ...hRange]
+        return [...range, ...getRangeFromWordOptions(text, highlight, path)]
       }
       return range
     }, [])
-    return ranges
   }
   return []
 }
