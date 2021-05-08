@@ -1,13 +1,7 @@
 import {useState, useMemo, FC} from 'react'
 import {createEditor, Node} from 'slate'
-import {
-  Slate,
-  Editable,
-  withReact,
-  DefaultElement,
-  DefaultLeaf,
-} from 'slate-react'
-import {decorate} from 'slate-stabilo-plugin'
+import {Slate, Editable, withReact} from 'slate-react'
+import {decorate, renderLeaf, Highlight} from 'slate-stabilo-plugin'
 
 const Editor: FC = (props) => {
   const editor = useMemo(() => withReact(createEditor()), [])
@@ -21,6 +15,10 @@ const Editor: FC = (props) => {
       ],
     },
   ])
+  const highlight: Highlight = [
+    'lorem',
+    {word: 'ipsum', color: 'red', textColor: 'white'},
+  ]
 
   return (
     <Slate
@@ -28,53 +26,7 @@ const Editor: FC = (props) => {
       value={value}
       onChange={(newValue) => setValue(newValue)}
     >
-      <Editable
-        decorate={decorate({
-          highlight: ['lorem', {word: 'ipsum', color: 'red'}],
-        })}
-        renderLeaf={(props) => {
-          if (props.leaf.type === 'stabilo') {
-            return (
-              <span
-                {...props.attributes}
-                style={{backgroundColor: props.leaf.color, padding: 4}}
-              >
-                {props.children}
-              </span>
-            )
-          }
-          return <DefaultLeaf {...props} />
-        }}
-        // renderElement={(props) => {
-        //   switch (props.element.type) {
-        //     case 'link': {
-        //       return (
-        //         <a
-        //           href={props.element.link as string}
-        //           style={{fontWeight: 'bold'}}
-        //           {...props.attributes}
-        //         >
-        //           {props.children}
-        //         </a>
-        //       )
-        //     }
-        //     case 'github_link': {
-        //       return (
-        //         <a
-        //           href={props.element.link as string}
-        //           style={{fontWeight: 'bold', color: 'blue'}}
-        //           {...props.attributes}
-        //         >
-        //           {props.children}
-        //         </a>
-        //       )
-        //     }
-        //     default: {
-        //       return <DefaultElement {...props} />
-        //     }
-        //   }
-        // }}
-      />
+      <Editable decorate={decorate(highlight)} renderLeaf={renderLeaf} />
     </Slate>
   )
 }
