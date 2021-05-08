@@ -1,8 +1,6 @@
 import {Range, Path} from 'slate'
 import {DEFAULT_NODE_TYPE, WordOptions} from './types'
 
-const DEFAULT_COLOR = '#d8cc3a'
-
 const getAllAnchorOffset = (text: string, search: string): Array<number> => {
   let start = 0
   const offset: Array<number> = []
@@ -25,7 +23,6 @@ export const getRangeFromString = (
     type: DEFAULT_NODE_TYPE,
     anchor: {path, offset},
     focus: {path, offset: offset + textLength},
-    color: DEFAULT_COLOR,
   }))
 }
 
@@ -36,11 +33,13 @@ export const getRangeFromWordOptions = (
 ): Range[] => {
   const anchorsOffset = getAllAnchorOffset(text, highlight.word)
   const textLength = highlight.word.length
-  const color = highlight.color || DEFAULT_COLOR
+  const color = highlight.color
+  const textColor = highlight.textColor
   return anchorsOffset.map((offset) => ({
     type: DEFAULT_NODE_TYPE,
     anchor: {path, offset},
     focus: {path, offset: offset + textLength},
     color,
+    textColor,
   }))
 }
