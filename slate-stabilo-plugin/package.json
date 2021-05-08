@@ -1,0 +1,16 @@
+{
+  "name": "slate-stabilo-plugin",
+  "version": "1.0.0",
+  "description": "slate highlighting text plugin",
+  "main": "dist/index.js",
+  "author": "imdbsd",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  },
+  "peerDependencies": {
+    "slate": "^0.62.1",
+    "slate-react": "^0.62.1"
+  }
+}
