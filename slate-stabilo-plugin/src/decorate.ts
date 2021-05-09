@@ -13,10 +13,7 @@ const decorate = (highlight: Highlight) => ([
   path,
 ]: NodeEntry): Range[] => {
   if (Editor.isEditor(node)) {
-    if (Range.isRange(highlight)) {
-      return getRangeFromRange(highlight)
-    }
-    if (isRangeOptions(highlight)) {
+    if (Range.isRange(highlight) || isRangeOptions(highlight)) {
       return getRangeFromRange(highlight)
     }
     if (Array.isArray(highlight)) {
@@ -33,7 +30,6 @@ const decorate = (highlight: Highlight) => ([
     if (typeof highlight === 'string') {
       return getRangeFromString(text, highlight, path)
     }
-
     if (isWordOptions(highlight)) {
       return getRangeFromWordOptions(text, highlight, path)
     }

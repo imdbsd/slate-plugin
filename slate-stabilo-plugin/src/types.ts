@@ -19,4 +19,4 @@ export type Highlight =
   | WordOptions
   | Range
   | RangeOptions
-  | Array<string | WordOptions | RangeOptions>
+  | Array<string | WordOptions | RangeOptions | Range>
