@@ -16,7 +16,7 @@ const Stabilo = (props: Props) => {
   return (
     <span
       {...props.attributes}
-      style={{backgroundColor: color, color: textColor, padding: 4}}
+      style={{backgroundColor: color, color: textColor, padding: 0.5}}
     >
       {props.children}
     </span>
