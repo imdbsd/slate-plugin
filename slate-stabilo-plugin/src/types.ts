@@ -1,11 +1,22 @@
-import {Location} from 'slate'
+import {Location, Range} from 'slate'
 export type StabiloNode = 'stabilo'
 export const DEFAULT_NODE_TYPE: StabiloNode = 'stabilo'
 
-export type WordOptions = {
-  word: string
+type StabiloType = {
   color?: string
   textColor?: string
-  at?: Location
 }
-export type Highlight = string | WordOptions | Array<string | WordOptions>
+
+export type WordOptions = {
+  word: string
+} & StabiloType
+export type RangeOptions = {
+  at: Range
+} & StabiloType
+
+export type Highlight =
+  | string
+  | WordOptions
+  | Range
+  | RangeOptions
+  | Array<string | WordOptions | RangeOptions>
