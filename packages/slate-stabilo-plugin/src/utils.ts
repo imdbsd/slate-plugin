@@ -26,11 +26,17 @@ export const isWordOptions = (options: any): options is WordOptions => {
   return false
 }
 
+type StabiloRange = {
+  type: 'stabilo'
+  color?: string
+  textColor?: string
+} & Range
+
 export const getRangeFromString = (
   text: string,
   highlight: string,
   path: Path
-): Range[] => {
+): StabiloRange[] => {
   const anchorsOffset = getAllAnchorOffset(text, highlight)
   const textLength = highlight.length
   return anchorsOffset.map((offset) => ({
@@ -44,7 +50,7 @@ export const getRangeFromWordOptions = (
   text: string,
   highlight: WordOptions,
   path: Path
-): Range[] => {
+): StabiloRange[] => {
   const anchorsOffset = getAllAnchorOffset(text, highlight.word)
   const textLength = highlight.word.length
   const color = highlight.color
@@ -58,7 +64,9 @@ export const getRangeFromWordOptions = (
   }))
 }
 
-export const getRangeFromRange = (highlight: RangeOptions | Range): Range[] => {
+export const getRangeFromRange = (
+  highlight: RangeOptions | Range
+): StabiloRange[] => {
   const at: Range = Range.isRange(highlight) ? highlight : highlight.at
   if (Range.isExpanded(at)) {
     return [
@@ -66,8 +74,8 @@ export const getRangeFromRange = (highlight: RangeOptions | Range): Range[] => {
         type: 'stabilo',
         anchor: at.anchor,
         focus: at.focus,
-        color: highlight.color || undefined,
-        textColor: highlight.textColor || undefined,
+        color: !Range.isRange(highlight) ? highlight.color : undefined,
+        textColor: !Range.isRange(highlight) ? highlight.textColor : undefined,
       },
     ]
   }
