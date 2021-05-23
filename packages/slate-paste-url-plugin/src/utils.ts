@@ -1,4 +1,9 @@
-import {Pattern, LINK_ELEMENT_TYPE} from './pasteUrl'
+export type Pattern = {
+  type?: string
+  capture: RegExp
+}
+
+export const LINK_ELEMENT_TYPE = 'link'
 
 export const getLinkType = (
   pattern?: Pattern,

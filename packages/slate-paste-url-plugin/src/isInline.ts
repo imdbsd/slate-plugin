@@ -1,6 +1,7 @@
 import {Element} from 'slate'
 import {Pattern, LINK_ELEMENT_TYPE} from './index'
 import {getTypeFromArrayOfPatterns} from './utils'
+import {UrlElement} from './types'
 
 export const isInline = (
   next: (element: Element) => boolean,
@@ -14,8 +15,6 @@ export const isInline = (
       patternType = [patterns.type]
     }
   }
-  return (
-    [...patternType, LINK_ELEMENT_TYPE].includes(element.type as string) ||
-    next(element)
-  )
+  const el = element as UrlElement
+  return [...patternType, LINK_ELEMENT_TYPE].includes(el.type) || next(el)
 }
