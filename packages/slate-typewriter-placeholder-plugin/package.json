@@ -1,0 +1,24 @@
+{
+  "name": "@imdbsd/slate-typewriter-placeholder-plugin",
+  "version": "1.0.0",
+  "description": "Typewriting placeholder effect plugin for slate.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/imdbsd/slate-plugin/tree/master/packages/slate-typewriter-placeholder-plugin",
+  "author": "imdbsd",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build:style": "cleancss ./src/styles.css -o ./dist/styles.css",
+    "build": "tsc -p . && yarn build:style"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "slate": "0.63.0",
+    "slate-react": "0.64.0"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.3.0",
+    "typescript": "^4.2.4"
+  }
+}
