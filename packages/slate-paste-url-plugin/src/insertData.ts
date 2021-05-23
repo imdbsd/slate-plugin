@@ -2,6 +2,7 @@ import {Range, Transforms} from 'slate'
 import {ReactEditor} from 'slate-react'
 import {Options, Pattern} from './index'
 import {getLinkType} from './utils'
+import {UrlElement} from './types'
 
 export const insertData = (
   editor: ReactEditor,
@@ -25,15 +26,12 @@ export const insertData = (
       }
     }
 
-    Transforms.wrapNodes(
-      editor,
-      {
-        type: getLinkType(matchedPattern, options?.defaultType),
-        link: plainUrl,
-        children: [{text: plainUrl}],
-      },
-      {split: true}
-    )
+    const node: UrlElement = {
+      type: getLinkType(matchedPattern, options?.defaultType),
+      link: plainUrl,
+      children: [{text: plainUrl}],
+    }
+    Transforms.wrapNodes(editor, node, {split: true})
     return
   }
   next(data)

@@ -2,7 +2,7 @@ import {Location, Range} from 'slate'
 export type StabiloNode = 'stabilo'
 export const DEFAULT_NODE_TYPE: StabiloNode = 'stabilo'
 
-type StabiloType = {
+export type StabiloType = {
   color?: string
   textColor?: string
 }
