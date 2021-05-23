@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@imdbsd/slate-paste-url-plugin": "0.0.1",
+    "@imdbsd/slate-stabilo-plugin": "1.0.0",
+    "@imdbsd/slate-string-deserialize": "1.0.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -16,9 +19,6 @@
     "slate": "^0.59.0",
     "slate-history": "^0.59.0",
     "slate-react": "^0.59.0",
-    "slate-paste-url-plugin": "0.0.1",
-    "slate-string-deserialize": "1.0.4",
-    "slate-stabilo-plugin": "1.0.0",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },

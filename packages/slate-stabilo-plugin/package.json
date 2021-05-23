@@ -1,5 +1,5 @@
 {
-  "name": "slate-stabilo-plugin",
+  "name": "@imdbsd/slate-stabilo-plugin",
   "version": "1.0.0",
   "description": "slate highlighting text plugin",
   "main": "dist/index.js",

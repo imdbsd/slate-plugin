@@ -1,7 +1,7 @@
 import {useState, useMemo, FC} from 'react'
 import {createEditor, Node} from 'slate'
 import {Slate, Editable, withReact, DefaultElement} from 'slate-react'
-import {usePasteUrl, Options} from 'slate-paste-url-plugin'
+import {usePasteUrl, Options} from '@imdbsd/slate-paste-url-plugin'
 
 export type Props = {
   defaultType?: string

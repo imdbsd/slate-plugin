@@ -1,9 +1,7 @@
 {
   "private": true,
   "workspaces": [
-    "slate-string-deserialize",
-    "slate-paste-url-plugin",
-    "slate-stabilo-plugin",
+    "packages/*",
     "playground"
   ]
 }

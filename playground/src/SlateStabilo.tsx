@@ -1,7 +1,7 @@
 import {useState, useMemo, FC, useRef, useEffect} from 'react'
 import {createEditor, Node} from 'slate'
 import {Slate, Editable, withReact} from 'slate-react'
-import {decorate, renderLeaf, Highlight} from 'slate-stabilo-plugin'
+import {decorate, renderLeaf, Highlight} from '@imdbsd/slate-stabilo-plugin'
 
 export type Props = {search: Highlight; value?: Node[]}
 const Editor: FC<Props> = (props) => {

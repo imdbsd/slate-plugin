@@ -1,5 +1,5 @@
 {
-  "name": "slate-paste-url-plugin",
+  "name": "@imdbsd/slate-paste-url-plugin",
   "version": "0.0.1",
   "description": "Paste url and transforms into anchor element",
   "main": "dist/index.js",
