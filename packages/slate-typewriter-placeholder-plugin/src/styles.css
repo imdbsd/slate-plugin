@@ -1,0 +1,47 @@
+.slate-typewriter-placeholder {
+  opacity: 1 !important;
+}
+
+.slate-typewriter-animate {
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  animation: typewriter 4s steps(44) 1s 1 normal both;
+}
+
+.slate-typewriter-animate.focus {
+  animation: none;
+}
+
+.slate-typewriter-animate > span {
+  opacity: 0.33;
+}
+
+.slate-typewriter-placeholder > p::after {
+  content: '';
+  border-right: 1px solid black;
+  animation: blinkTextCursor 1000ms infinite normal;
+}
+
+.slate-typewriter-placeholder.focus > p::after {
+  content: none;
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: black;
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

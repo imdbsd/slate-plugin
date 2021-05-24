@@ -6,6 +6,7 @@
     "@imdbsd/slate-paste-url-plugin": "0.0.1",
     "@imdbsd/slate-stabilo-plugin": "1.0.0",
     "@imdbsd/slate-string-deserialize": "1.0.4",
+    "@imdbsd/slate-typewriter-placeholder-plugin": "1.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
