@@ -11,5 +11,5 @@ const Template: Story<Props> = (args) => <Editor {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  placeholder: 'lorem ipsum',
+  placeholder: 'This is a custom typewriting placeholder...',
 }
