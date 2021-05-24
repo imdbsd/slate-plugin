@@ -2,15 +2,27 @@ import * as React from 'react'
 import {RenderPlaceholderProps, useFocused} from 'slate-react'
 import './styles.css'
 
+let focusRef = false
+
 const TypewriterPlaceholder = (props: RenderPlaceholderProps) => {
-  const isFocus = useFocused()
+  const isEditorFocus = useFocused()
+
+  React.useEffect(() => {
+    if (isEditorFocus) {
+      focusRef = isEditorFocus
+    }
+  }, [isEditorFocus])
+
+  const focus = focusRef || isEditorFocus ? 'focus' : ''
+
   return (
-    <div className="slate-typewriter-placeholder" {...props.attributes}>
-      <span
-        style={{borderColor: isFocus ? 'transparent !important' : 'orange'}}
-      >
-        {props.children}
-      </span>
+    <div
+      className={`slate-typewriter-placeholder ${focus}`}
+      {...props.attributes}
+    >
+      <p className={`slate-typewriter-animate ${focus}`}>
+        <span>{props.children}</span>
+      </p>
     </div>
   )
 }
