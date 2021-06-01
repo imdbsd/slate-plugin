@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@imdbsd/slate-censor-plugin": "1.0.0",
     "@imdbsd/slate-paste-url-plugin": "0.0.1",
     "@imdbsd/slate-stabilo-plugin": "1.0.0",
     "@imdbsd/slate-string-deserialize": "1.0.4",

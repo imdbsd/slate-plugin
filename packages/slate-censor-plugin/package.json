@@ -1,0 +1,22 @@
+{
+  "name": "@imdbsd/slate-censor-plugin",
+  "version": "1.0.0",
+  "description": "slate censor text plugin",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/imdbsd/slate-plugin/tree/master/packages/slate-censor-plugin",
+  "private": false,
+  "author": "imdbsd",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "slate": "^0.63.0",
+    "slate-react": "^0.64.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  }
+}
