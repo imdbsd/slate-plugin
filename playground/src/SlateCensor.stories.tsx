@@ -12,4 +12,5 @@ const Template: Story<Props> = (args) => <Editor {...args} />
 export const Default = Template.bind({})
 Default.args = {
   blacklist: 'fuck;bitch;slut',
+  censorChar: '*',
 }

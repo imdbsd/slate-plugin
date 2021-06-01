@@ -5,10 +5,12 @@ import {decorate, renderLeaf} from '@imdbsd/slate-censor-plugin'
 
 export type Props = {
   blacklist?: string
+  censorChar?: string
 }
 
 const Editor: FC<Props> = (props) => {
   const blacklist = props.blacklist ? props.blacklist.split(';') : []
+  const censorChar = props.censorChar || '*'
   const editor = useMemo(() => withReact(createEditor()), [])
   const [value, setValue] = useState<Node[]>([
     {
@@ -27,7 +29,10 @@ const Editor: FC<Props> = (props) => {
       value={value}
       onChange={(newValue) => setValue(newValue)}
     >
-      <Editable decorate={decorate(blacklist)} renderLeaf={renderLeaf('')} />
+      <Editable
+        decorate={decorate(blacklist)}
+        renderLeaf={renderLeaf(censorChar)}
+      />
     </Slate>
   )
 }
