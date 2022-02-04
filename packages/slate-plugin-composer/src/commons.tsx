@@ -1,4 +1,3 @@
-import * as React from 'react'
 import {RenderElementProps, DefaultElement} from 'slate-react'
 
 export const compose = <R,>(fn1: (a: R) => R, ...fns: Array<(a: R) => R>) =>
