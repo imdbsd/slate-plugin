@@ -1,7 +1,7 @@
 {
-  "name": "@imdbsd/slate-editable-plugin-first",
+  "name": "@imdbsd/slate-plugin-composer",
   "version": "0.0.1",
-  "description": "Slate JS Editable and Slate Provider wrapper for pluggin first concept",
+  "description": "Slate JS composer plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "imdbsd",
