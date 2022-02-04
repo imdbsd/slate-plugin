@@ -71,8 +71,9 @@ const useComposePlugin = <
 const Editable = (props: Props): React.ReactNode => {
   const {value, onChange, plugins, editorRef, ...editableProps} = props
   const renderElement = useComposePlugin<
-    (props: RenderElementProps) => JSX.Element
-  >('renderElement', composeRenderElements, plugins)
+    (props: RenderElementProps) => JSX.Element,
+    RenderElementFunc
+  >('renderElement', composeRenderElements, plugins || [])
 
   const editor = useCreateEditor()
 
