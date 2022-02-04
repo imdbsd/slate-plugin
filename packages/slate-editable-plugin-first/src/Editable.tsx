@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {createEditor, Descendant, NodeEntry, Editor} from 'slate'
+import {Descendant, NodeEntry, Editor} from 'slate'
 import {
   Editable as SlateEditable,
   RenderElementProps,
@@ -7,14 +7,14 @@ import {
   RenderPlaceholderProps,
   ReactEditor,
   Slate,
-  withReact,
 } from 'slate-react'
 import {DOMRange} from 'slate-react/dist/utils/dom'
+import {composeRenderElements, RenderElementFunc} from 'commons'
 import useCreateEditor from 'useCreateEditor'
 
 type Plugin = {
   withPlugin?: <T extends Editor>(editor: T) => T
-  renderElement?: (props: RenderElementProps) => JSX.Element
+  renderElement?: RenderElementFunc
   renderLeaf?: (props: RenderLeafProps) => JSX.Element
   renderPlaceholder?: (props: RenderPlaceholderProps) => JSX.Element
   decorate?: (entry: NodeEntry) => Range[]
@@ -49,13 +49,36 @@ type Props = {
   as?: React.ElementType
 }
 
+const useComposePlugin = <
+  P extends unknown = Function,
+  C extends unknown = Function
+>(
+  pluginKey: string,
+  composer: (...func: C[]) => P,
+  plugins: Plugin[]
+): P => {
+  const reducedPlugins =
+    plugins?.reduce(
+      (nextPlugin, plugin) =>
+        // @ts-ignore @TODO better type checking
+        plugin[pluginKey] ? [...nextPlugin, plugin[pluginKey]] : nextPlugin,
+      [] as C[]
+    ) || ([] as C[])
+  // @ts-ignore
+  return React.useCallback(composer(...reducedPlugins), [])
+}
+
 const Editable = (props: Props): React.ReactNode => {
   const {value, onChange, plugins, editorRef, ...editableProps} = props
+  const renderElement = useComposePlugin<
+    (props: RenderElementProps) => JSX.Element
+  >('renderElement', composeRenderElements, plugins)
+
   const editor = useCreateEditor()
 
   return (
     <Slate editor={editor} value={value} onChange={onChange}>
-      <SlateEditable {...editableProps} />
+      <SlateEditable {...editableProps} renderElement={renderElement} />
     </Slate>
   )
 }
