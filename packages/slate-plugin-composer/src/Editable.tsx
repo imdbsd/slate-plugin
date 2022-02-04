@@ -9,8 +9,8 @@ import {
   Slate,
 } from 'slate-react'
 import {DOMRange} from 'slate-react/dist/utils/dom'
-import {composeRenderElements, RenderElementFunc} from 'commons'
-import useCreateEditor from 'useCreateEditor'
+import {composeRenderElements, RenderElementFunc} from './commons'
+import useCreateEditor from './useCreateEditor'
 
 type Plugin = {
   withPlugin?: <T extends Editor>(editor: T) => T
@@ -56,7 +56,7 @@ const useComposePlugin = <
   pluginKey: string,
   composer: (...func: C[]) => P,
   plugins: Plugin[]
-): P => {
+): P | undefined => {
   const reducedPlugins =
     plugins?.reduce(
       (nextPlugin, plugin) =>
@@ -65,15 +65,20 @@ const useComposePlugin = <
       [] as C[]
     ) || ([] as C[])
   // @ts-ignore
-  return React.useCallback(composer(...reducedPlugins), [])
+  return reducedPlugins.length
+    ? // @ts-ignore
+      React.useCallback(composer(...reducedPlugins), [])
+    : undefined
 }
 
-const Editable = (props: Props): React.ReactNode => {
-  const {value, onChange, plugins, editorRef, ...editableProps} = props
+const Editable = (props: Props): JSX.Element => {
+  const {value, onChange, plugins = [], editorRef, ...editableProps} = props
   const renderElement = useComposePlugin<
-    (props: RenderElementProps) => JSX.Element,
+    ((props: RenderElementProps) => JSX.Element) | undefined,
     RenderElementFunc
-  >('renderElement', composeRenderElements, plugins || [])
+  >('renderElement', composeRenderElements, plugins)
+
+  console.log(renderElement)
 
   const editor = useCreateEditor()
 

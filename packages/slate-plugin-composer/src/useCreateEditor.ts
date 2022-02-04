@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {createEditor} from 'slate'
 import {withReact} from 'slate-react'
-import {compose} from 'commons'
+import {compose} from './commons'
 
 const useCreateEditor = () => {
     // @ts-ignore
