@@ -1,0 +1,17 @@
+{
+  "name": "@imdbsd/slate-plugin-composer",
+  "version": "0.0.1",
+  "description": "Slate JS composer plugins",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "imdbsd",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "peerDependencies": {
+    "slate": "^0.72.8",
+    "slate-react": "^0.72.8"
+  }
+}
